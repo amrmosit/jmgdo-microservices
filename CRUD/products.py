@@ -12,12 +12,12 @@ products = [
 ]
 # Creating REST API endpoints
 # request - http://localhost:5000/products
-@pp.route('/products', methods=['GET'])
+@app.route('/products', methods=['GET'])
 def get_products():
     return jsonify(products)
 
 # request - http://localhost:5000/products/id - with method GET
-app.route('/products/<id>', methods=['GET'])
+@app.route('/products/<id>', methods=['GET'])
 def get_product(id):
     id = int(id)
     product = [x for x in products if x["id"] == id][0] # returning the first match
